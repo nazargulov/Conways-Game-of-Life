@@ -23,12 +23,12 @@
         <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="199,0,0,0" Name="buttonClear" VerticalAlignment="Top" Width="75" Click="ButtonClearClick" />
         <Button Content="Stop" Height="23" HorizontalAlignment="Left" Margin="274,0,0,0" Name="buttonStop" VerticalAlignment="Top" Width="75" Click="ButtonStopClick" />
         <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="349,0,-6,0" Name="buttonSave" VerticalAlignment="Top" Width="75" Click="ButtonSaveClick" Grid.ColumnSpan="2" />
-        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="6,0,-81,0" Name="buttonRead" VerticalAlignment="Top" Width="75" Click="ButtonReadClick" Grid.Column="1" />
+        <Button Content="Read" Height="23" HorizontalAlignment="Left" Margin="6,0,-81,0" Name="buttonRead" VerticalAlignment="Top" Width="75" Click="ButtonReadClick" Grid.Column="1" />
         <Label Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" x:Name="label2" VerticalAlignment="Top" Content="x:" Width="19"/>
         <Label Height="28" HorizontalAlignment="Left" Margin="10,30,0,0" x:Name="label3" VerticalAlignment="Top" Content="y:" Width="19"/>
-        <Label Height="28" HorizontalAlignment="Left" Margin="20,10,0,0" x:Name="labelX" VerticalAlignment="Top" Content="0" Width="16"/>
-        <Label Height="28" HorizontalAlignment="Left" Margin="20,30,0,0" x:Name="labelY" VerticalAlignment="Top" Content="0" Width="16"/>
+        <Label Height="28" HorizontalAlignment="Left" Margin="20,10,0,0" x:Name="labelX" VerticalAlignment="Top" Content="0" Width="100"/>
+        <Label Height="28" HorizontalAlignment="Left" Margin="20,30,0,0" x:Name="labelY" VerticalAlignment="Top" Content="0" Width="100"/>
         <Label Height="28" HorizontalAlignment="Left" Margin="10,50,0,0" x:Name="label4" VerticalAlignment="Top" Content="Step:" Width="36"/>
-        <Label Height="28" HorizontalAlignment="Left" Margin="35,50,0,0" x:Name="labelStep" VerticalAlignment="Top" Content="0" Width="16"/>
+        <Label Height="28" HorizontalAlignment="Left" Margin="35,50,0,0" x:Name="labelStep" VerticalAlignment="Top" Content="0" Width="100"/>
     </Grid>
 </Window>
