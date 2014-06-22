@@ -217,7 +217,7 @@ namespace ConwaysGameOfLife
          * @param sender
          * @param e
          */
-        private void canvasGridMouseMove(object sender, MouseEventArgs e)
+        void CanvasGridMouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && _isSolve)
             {
@@ -238,7 +238,12 @@ namespace ConwaysGameOfLife
             }
         }
 
-        private void CanvasGridMouseUp(object sender, MouseButtonEventArgs e)
+        /**
+         * 
+         * @param sender
+         * @param e
+         */
+        void CanvasGridMouseUp(object sender, MouseButtonEventArgs e)
         {
             canvasGrid.ReleaseMouseCapture();
             _basePoint.X += _deltaX;
@@ -252,7 +257,7 @@ namespace ConwaysGameOfLife
          * @param sender
          * @param e
          */
-        private void ButtonStartClick(object sender, RoutedEventArgs e)
+        void ButtonStartClick(object sender, RoutedEventArgs e)
         {
             if (_currentGeneration != null && _game != null)
             {
@@ -271,7 +276,7 @@ namespace ConwaysGameOfLife
          * @param sender
          * @param e
          */
-        private void ButtonClearClick(object sender, RoutedEventArgs e)
+        void ButtonClearClick(object sender, RoutedEventArgs e)
         {
             canvasGrid.Children.Clear();
             if (_currentGeneration != null)
@@ -285,7 +290,7 @@ namespace ConwaysGameOfLife
          * @param sender
          * @param e
          */
-        private void ButtonStopClick(object sender, RoutedEventArgs e)
+        void ButtonStopClick(object sender, RoutedEventArgs e)
         {
             StopGame();
         }
@@ -295,7 +300,7 @@ namespace ConwaysGameOfLife
          * @param sender
          * @param e
          */
-        private void ButtonSaveClick(object sender, RoutedEventArgs e)
+        void ButtonSaveClick(object sender, RoutedEventArgs e)
         {
             if (_currentGeneration != null)
             {
@@ -323,23 +328,16 @@ namespace ConwaysGameOfLife
          * @param sender
          * @param e
          */
-        private void ButtonReadClick(object sender, RoutedEventArgs e)
+        void ButtonReadClick(object sender, RoutedEventArgs e)
         {
-            try
+            using (var IsolatedStorage = IsolatedStorageFile.GetUserStoreForAssembly())
             {
-                using (var IsolatedStorage = IsolatedStorageFile.GetUserStoreForAssembly())
+                using (var file = IsolatedStorage.OpenFile(_fileNameOfStateGeneration, FileMode.Open))
                 {
-                    using (var file = IsolatedStorage.OpenFile(_fileNameOfStateGeneration, FileMode.Open))
-                    {
-                        var serializer = new XmlSerializer(typeof(HashSet<Cell>));
-                        _currentGeneration = (HashSet<Cell>)serializer.Deserialize(file);
-                        DrawPointOnCanvas(_currentGeneration);
-                    }
+                    var serializer = new XmlSerializer(typeof(HashSet<Cell>));
+                    _currentGeneration = (HashSet<Cell>)serializer.Deserialize(file);
+                    DrawPointOnCanvas(_currentGeneration);
                 }
-            }
-            catch
-            {
-                //add some code here
             }
         }
     }
