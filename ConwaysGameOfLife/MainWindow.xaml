@@ -1,14 +1,10 @@
 ﻿<Window x:Class="ConwaysGameOfLife.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="MainWindow" Height="620" Width="505" ResizeMode="NoResize">
+    Title="MainWindow" Height="620" Width="600" ResizeMode="NoResize">
 
-    <Grid Margin="0,0,81,-174">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <Canvas Height="600" Name="canvasGrid" VerticalAlignment="Top" MouseDown="CanvasGridMouseDown" MouseMove="canvasGridMouseMove" MouseUp="CanvasGridMouseUp" Margin="1,0,-83,0" Grid.ColumnSpan="2">
+    <Grid>
+        <Canvas Height="600" HorizontalAlignment="Left" Name="canvasGrid" VerticalAlignment="Top" Width="600" MouseDown="CanvasGridMouseDown" MouseMove="canvasGridMouseMove" MouseUp="CanvasGridMouseUp" Margin="1,0,-1,0">
             <Canvas.Background>
                 <VisualBrush TileMode="Tile" Viewport="0,0,5,5" ViewportUnits="Absolute" 
                     Viewbox="0,0,5,5" ViewboxUnits="Absolute">
@@ -19,16 +15,16 @@
                 </VisualBrush>
             </Canvas.Background>
         </Canvas>
-        <Button Content="Start" Height="23" HorizontalAlignment="Left" Margin="124,0,0,0" Name="buttonStart" VerticalAlignment="Top" Width="75" Click="ButtonStartClick" />
-        <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="199,0,0,0" Name="buttonClear" VerticalAlignment="Top" Width="75" Click="ButtonClearClick" />
-        <Button Content="Stop" Height="23" HorizontalAlignment="Left" Margin="274,0,0,0" Name="buttonStop" VerticalAlignment="Top" Width="75" Click="ButtonStopClick" />
-        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="349,0,-6,0" Name="buttonSave" VerticalAlignment="Top" Width="75" Click="ButtonSaveClick" Grid.ColumnSpan="2" />
-        <Button Content="Read" Height="23" HorizontalAlignment="Left" Margin="6,0,-81,0" Name="buttonRead" VerticalAlignment="Top" Width="75" Click="ButtonReadClick" Grid.Column="1" />
-        <Label Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" x:Name="label2" VerticalAlignment="Top" Content="x:" Width="19"/>
-        <Label Height="28" HorizontalAlignment="Left" Margin="10,30,0,0" x:Name="label3" VerticalAlignment="Top" Content="y:" Width="19"/>
-        <Label Height="28" HorizontalAlignment="Left" Margin="20,10,0,0" x:Name="labelX" VerticalAlignment="Top" Content="0" Width="100"/>
-        <Label Height="28" HorizontalAlignment="Left" Margin="20,30,0,0" x:Name="labelY" VerticalAlignment="Top" Content="0" Width="100"/>
-        <Label Height="28" HorizontalAlignment="Left" Margin="10,50,0,0" x:Name="label4" VerticalAlignment="Top" Content="Step:" Width="36"/>
-        <Label Height="28" HorizontalAlignment="Left" Margin="35,50,0,0" x:Name="labelStep" VerticalAlignment="Top" Content="0" Width="100"/>
+        <Button Content="Start" Height="23" HorizontalAlignment="Left" Margin="194,1,0,0" Name="buttonStart" VerticalAlignment="Top" Width="75" Click="ButtonStartClick" />
+        <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="275,0,0,0" Name="buttonClear" VerticalAlignment="Top" Width="75" Click="ButtonClearClick" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="2,46,0,0" Name="label1" VerticalAlignment="Top" Content="Step:" />
+        <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="34,47,0,0" Name="labelStep" VerticalAlignment="Top" />
+        <Label x:Name="labelX" Content="0" Height="25" Canvas.Left="30" Canvas.Top="10" Margin="24,27,409,543"/>
+        <Label x:Name="labelY" Content="0" Height="25" Canvas.Top="25" Canvas.Left="33" Margin="24,11,409,559"/>
+        <Button Content="Stop" Height="23" HorizontalAlignment="Left" Margin="358,0,0,0" Name="buttonStop" VerticalAlignment="Top" Width="75" Click="ButtonStopClick" />
+        <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" Margin="439,0,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSaveClick" Height="23"/>
+        <Button x:Name="buttonRead" Content="Read" HorizontalAlignment="Left" Margin="519,0,0,0" VerticalAlignment="Top" Width="75" Click="ButtonReadClick" Height="23"/>
+        <Label Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" x:Name="label1_Copy" VerticalAlignment="Top" Content="X:" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="10,27,0,0" x:Name="label1_Copy1" VerticalAlignment="Top" Content="Y:" RenderTransformOrigin="0.3,1.179" />
     </Grid>
 </Window>
