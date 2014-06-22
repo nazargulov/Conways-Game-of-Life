@@ -28,7 +28,7 @@ namespace ConwaysGameOfLife
     {
         static string _fileNameOfStateGeneration = "StateCurrentGeneration.xml";
         static readonly int _strokeThickness = 5;
-        static readonly int _delay = 300;
+        static readonly int _delay = 200;
 
         long _offsetCanvasX;
         long _offsetCanvasY;
