@@ -5,14 +5,10 @@ using System.IO.IsolatedStorage;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading.Tasks;
@@ -63,6 +59,7 @@ namespace ConwaysGameOfLife
          */
         async void LaunchGame(IEnumerable<IEnumerable<Cell>> generations, long minimumDelay)
         {
+            long step = 0;
             var it = generations.GetEnumerator();
 
             Func<IEnumerable<Cell>> getItem = () =>
@@ -89,7 +86,7 @@ namespace ConwaysGameOfLife
                     StopGame();
                     break;
                 }
-                DrawPointOnCanvas(generation);
+                DrawPointOnCanvas(generation, step++);
             }
             it.Dispose();
         }
@@ -112,9 +109,11 @@ namespace ConwaysGameOfLife
         /**
          * Rendering live points
          * @param points
+         * @param step
          */
-        void DrawPointOnCanvas(IEnumerable<Cell> generation)
+        void DrawPointOnCanvas(IEnumerable<Cell> generation, long step = 0)
         {
+            labelStep.Content = step.ToString();
             canvasGrid.Children.Clear();
             if (generation != null)
             {
